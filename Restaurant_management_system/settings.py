@@ -126,14 +126,20 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+## Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
-# Managing media
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# This is where `collectstatic` will gather all static files to serve in production
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# Additional locations the staticfiles app will look for static files
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# Media files (user uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # SMTP Configuration
 
