@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'hz8(ou+a7kq72y2@$*w1uhmo)dy_g++9lul1p*+mw%=jgw5(5f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []  # Add your domain names or IPs here in production
 
 
 # Application definition
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
 ]
 
 MIDDLEWARE = [
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Restaurant_management_system.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['Restaurant_management_system/templates'],
+        'DIRS': [BASE_DIR / 'Restaurant_management_system' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,15 +75,13 @@ WSGI_APPLICATION = 'Restaurant_management_system.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-
+        # Uncomment and configure for MySQL or other DBs
         # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'foodMania',  # name of the database
+        # 'NAME': 'foodMania',
         # 'USER': 'root',
         # 'PASSWORD': '',
         # 'HOST': 'localhost',
@@ -93,59 +91,44 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 ]
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/3.1/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'Asia/Kolkata'
-
+TIME_ZONE = 'Africa/Nairobi'  # East African Time (EAT)
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
-## Static files (CSS, JavaScript, Images)
+
 STATIC_URL = '/static/'
 
-# This is where `collectstatic` will gather all static files to serve in production
+# Where collectstatic will put all the collected static files for production
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Additional locations the staticfiles app will look for static files
+# Additional places to look for static files in development
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-# Media files (user uploads)
+# Media files (uploads by users)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# SMTP Configuration
 
+# Email (SMTP) Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'xxxx@gmail.com'   # enter you email address
-EMAIL_HOST_PASSWORD = 'xxxx'     # enter your password 
+EMAIL_HOST_USER = 'xxxx@gmail.com'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'xxxx'        # Replace with your email password or app password
