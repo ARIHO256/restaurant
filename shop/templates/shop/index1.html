@@ -51,7 +51,7 @@
 <div class="c">&nbsp;
     {% for product, range, nSlides in allProds %}
     &nbsp;
-    <a href="/shop/search/?search={{product.0.category}}" class="text-dark">
+    <a href="/search/?search={{product.0.category}}" class="text-dark">
         <i class="fas fa-stream"></i>
         <span>{{product.0.category}}</span>
     </a>
@@ -82,7 +82,7 @@
                                 <span id="divpr{{i.id}}" class="divpr">
                                     <button id="pr{{i.id}}" class="btn btn-primary cart">Add to Cart</button>
                                 </span>
-                                <a href="/shop/productView/{{i.id}}"> <button id="qv{{i.id}}" class="btn btn-primary cart">Quick View</button> </a>
+                                <a href="/productView/{{i.id}}"> <button id="qv{{i.id}}" class="btn btn-primary cart">Quick View</button> </a>
                             </div>
                         </div>
                     </div>
@@ -148,10 +148,10 @@ function updatePopover(cart) {
     }
     if(j == 0) {
         popStr = popStr + "<p><b> No item available in your cart </b></p><div class='mx-2 my-2'>";
-        popStr = popStr + "</div> <a href='/shop'><button class='btn btn-primary'>Add items</button></a> ";
+        popStr = popStr + "</div> <a href='/'><button class='btn btn-primary'>Add items</button></a> ";
     }
     else{
-        popStr = popStr + "</div> <a href='/shop/checkout'><button class='btn btn-primary' id='checkout'>Checkout</button></a> <a href='/shop/'><button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button></a>  ";
+        popStr = popStr + "</div> <a href='/checkout'><button class='btn btn-primary' id='checkout'>Checkout</button></a> <a href='/'><button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button></a>  ";
     }
     document.getElementById("popcart").setAttribute('data-content', popStr);
     $('#popcart').popover();

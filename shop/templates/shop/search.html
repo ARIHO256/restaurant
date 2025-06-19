@@ -1,5 +1,5 @@
 {% extends 'shop/basic.html' %}
-{% block title%} Search - Food Mania {% endblock %}
+{% block title%} Search - Achiever Restaurant {% endblock %}
 {% block css %}
         #cont {
             min-height : 573px;
@@ -75,7 +75,7 @@
                                 <span id="divpr{{i.id}}" class="divpr">
                                     <button id="pr{{i.id}}" class="btn btn-primary cart">Add to Cart</button>
                                 </span>
-                                <a href="/shop/productView/{{i.id}}"> <button id="qv{{i.id}}" class="btn btn-primary cart">Quick View</button> </a>
+                                <a href="/productView/{{i.id}}"> <button id="qv{{i.id}}" class="btn btn-primary cart">Quick View</button> </a>
                             </div>
                         </div>
                     </div>
@@ -144,7 +144,7 @@ popStr = popStr + "<h5> Your items in cart </h5><div class='mx-2 my-2'>";
     popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 15) + "... Qty: " + cart[item][0] + '<br>';
     i = i + 1;
     }
-    popStr = popStr + "</div> <a href='/shop/checkout'><button class='btn btn-primary' id='checkout'>Checkout</button></a> <a href=''><button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button></a>  ";
+    popStr = popStr + "</div> <a href='/checkout'><button class='btn btn-primary' id='checkout'>Checkout</button></a> <a href=''><button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button></a>  ";
 document.getElementById("popcart").setAttribute('data-content', popStr);
 $('#popcart').popover();
 }

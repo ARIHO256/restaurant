@@ -42,7 +42,7 @@ def contact(request):
         contact = Contact(name=name, email=email, phone=phone, desc=desc)
         contact.save()
         thank = True
-        return render(request, 'shop/contact.html', {'thank': thank})
+        return redirect('ContactUs')
     return render(request, 'shop/contact.html', {'thank': thank})
 
 
@@ -137,7 +137,7 @@ def checkout(request):
                 'INDUSTRY_TYPE_ID': 'Retail',
                 'WEBSITE': 'WEBSTAGING',
                 'CHANNEL_ID': 'WEB',
-                'CALLBACK_URL': 'http://127.0.0.1:8000/shop/handlerequest/',
+                'CALLBACK_URL': 'http://127.0.0.1:8000/handlerequest/',
 
             }
             darshan_dict['CHECKSUMHASH'] = Checksum.generate_checksum(darshan_dict, MERCHANT_KEY)

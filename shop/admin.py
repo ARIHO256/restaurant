@@ -50,6 +50,6 @@ admin.site.register(Contact, ContactAdmin)
 admin.site.register(Orders, OrdersAdmin)
 admin.site.register(OrderUpdate, OrderUpdateAdmin)
 
-admin.site.site_header = "The Food Mania"
-admin.site.index_title = "The Food Mania Administration"
-admin.site.site_title = "The Food Mania Admin"
+admin.site.site_header = "The Achiever Restaurant"
+admin.site.index_title = "The Achiever Restaurant Administration"
+admin.site.site_title = "The Achiever Restaurant Admin"

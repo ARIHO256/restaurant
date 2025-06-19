@@ -1,5 +1,5 @@
 {% extends 'shop/basic.html' %}
-{% block title%} Contact Us - Food Mania{% endblock %}
+{% block title%} Contact Us - Achiever Restaurant{% endblock %}
 {% block css %}
 
  .footer.container-fluid.bg-dark.text-light {
@@ -98,7 +98,7 @@
                     <h4 class="title">Contact Us</h4>
                   </div>
                 </div>
-                <form action="/shop/contact/" method="POST">{% csrf_token %}
+                <form action="/contact/" method="POST">{% csrf_token %}
                   <div class="form-group mt-3">
                       <b><label for="name">Name:</label></b>
                       <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required>
@@ -111,7 +111,7 @@
                       <b><label for="phone">Phone No:</label></b>
                       <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon">+91</span>
+                            <span class="input-group-text" id="basic-addon">+256</span>
                           </div>
                           <input type="tel" class="form-control" id="phone" name="phone" aria-describedby="basic-addon" placeholder="Enter Your Phone Number" required pattern="[0-9]{10}">
                       </div>
@@ -132,7 +132,7 @@
                       <p class="text-white op-7">2515469442 <br> 6304468851</p>
                       <div class="round-social light">
                         <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=darshanparmar263@gmail.com" class="ml-0 text-decoration-none text-white border border-white rounded-circle" target="_blank"><i class="far fa-envelope"></i></a>
-                        <a href="https://github.com/darshankparmar" class="text-decoration-none text-white border border-white rounded-circle" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/ARIHO256" class="text-decoration-none text-white border border-white rounded-circle" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://youtube.com/" class="text-decoration-none text-white border border-white rounded-circle" target="_blank"><i class="fab fa-youtube"></i></a>
                       </div>
                     </div>
@@ -152,7 +152,7 @@ updatePopover(cart);
 
 function updatePopover(cart) {
     var popStr = "";
-    popStr = popStr + "<h5> Click <a href='/shop/checkout'><button class='btn btn-primary'>Here</button></a> to order </h5><div class='mx-2 my-2'>";
+    popStr = popStr + "<h5> Click <a href='/checkout'><button class='btn btn-primary'>Here</button></a> to order </h5><div class='mx-2 my-2'>";
     document.getElementById("popcart").setAttribute('data-content', popStr);
     $('#popcart').popover();
 }

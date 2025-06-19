@@ -15,7 +15,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="/shop/login/" method="post">{% csrf_token %}
+            <form action="/login/" method="post">{% csrf_token %}
               <div class="text-left my-2">
                   <b><label for="username">Username</label></b>
                   <input class="form-control" id="loginusername" name="loginusername" placeholder="Enter Your Username" type="text" required pattern="^[a-z]{3,15}$">
