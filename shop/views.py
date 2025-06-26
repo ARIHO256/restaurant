@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 
 # I have created this file - Darshan
 # from django.http import HttpResponse
-from .models import Product, Contact, Orders, OrderUpdate
+from .models import Product, Contact, Orders, OrderUpdate, About
 from django.contrib.auth.models import User
 from django.contrib import messages
 from math import ceil
@@ -12,6 +12,25 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from PayTm import Checksum
 MERCHANT_KEY = 'kbzk1DSbJiV_O3p5';   # Your-Merchant-Key-Here
+
+
+from django.shortcuts import render
+from .models import Product
+import math
+
+def home(request):
+    allProds = []
+    catprods = Product.objects.values('category', 'id')
+    cats = {item['category'] for item in catprods}
+
+    for cat in cats:
+        prod = Product.objects.filter(category=cat)
+        n = len(prod)
+        nSlides = n // 4 + math.ceil((n / 4) - (n // 4))
+        allProds.append([prod, range(1, nSlides), nSlides])
+
+    context = {'allProds': allProds}
+    return render(request, 'shop/home.html', context)
 
 
 def index(request):
@@ -28,8 +47,13 @@ def index(request):
     # return HttpResponse("<h1 align='center'> <font color='#FF0000' size='9' > Welcome Our Restaurant </font> </h1>")
 
 
+# views.py
 def about(request):
-    return render(request, 'shop/about.html')
+    about_info = About.objects.order_by('-creating_date').first()  # Use the actual field name
+    return render(request, 'shop/about.html', {
+        'about': about_info,
+    })
+
 
 
 def contact(request):

@@ -1,9 +1,5 @@
 from django.db import models
 
-# Create your models here.
-from django.utils import timezone
-
-
 class Product(models.Model):
     product_id = models.AutoField
     product_name = models.CharField(max_length=50)
@@ -42,14 +38,23 @@ class Orders(models.Model):
     state = models.CharField(max_length=111)
     zip_code = models.CharField(max_length=111)
     phone = models.CharField(max_length=111, default="")
-    timestamp = models.DateTimeField(default=timezone.now)
+    timestamp = models.DateTimeField(auto_now=True)
 
 
 class OrderUpdate(models.Model):
     update_id = models.AutoField(primary_key=True)
     order_id = models.IntegerField(default="")
     update_desc = models.CharField(max_length=5000)
-    timestamp = models.DateTimeField(default=timezone.now)
+    timestamp = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.update_desc
+
+# models.py
+class About(models.Model):
+    title = models.CharField(max_length=100)
+    about_desc = models.TextField()
+    creating_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

@@ -118,7 +118,7 @@ if (localStorage.getItem('cart') == null) {
 $('.divpr').on('click', 'button.cart', function() {
     var idstr = this.id.toString();
     //console.log(idstr);
-    if (cart[idstr] != undefined) {
+    if (cart[idstr] !== undefined) {
         qty = cart[idstr][0] + 1;
     } else {
         qty = 1;

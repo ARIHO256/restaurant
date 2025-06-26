@@ -14,13 +14,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-default-key-for-dev-only')
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = True
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
-    'jazzmin',
+    'unfold',
     'rangefilter',
     'shop.apps.ShopConfig',
     'django.contrib.admin',
@@ -31,6 +34,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',  # For static files
 ]
+# settings.py
+
+UNFOLD = {
+    "SITE_TITLE": "Your Admin Title",
+    "SITE_HEADER": "Your Admin Header",
+    "SITE_BRAND": "Your Brand",
+    # Optional settings:
+    "SHOW_COUNTS": True,
+    "COLLAPSIBLE_GROUPS": True,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
